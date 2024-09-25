@@ -6,7 +6,7 @@
     "dev": "node --import=tsx --watch --env-file=.env ./src/server.ts",
     "build": "tsc",
     "start": "npm run build && npx prisma generate && node dist/server.js",
-    "seed": "ts-node prisma/seed.ts",
+    "seed": "node dist/prisma/seed.js",
     "postinstall": "npm run seed"
   },
   "dependencies": {
@@ -15,7 +15,8 @@
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "helmet": "^7.1.0",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
