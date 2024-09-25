@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "npm run build && npx prisma generate && node dist/server.js",
     "seed": "node dist/prisma/seed.js",
-    "postinstall": "ts-node prisma/seed.ts"
+    "postinstall": "npx ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",
