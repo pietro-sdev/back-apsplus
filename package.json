@@ -6,8 +6,7 @@
     "dev": "node --import=tsx --watch --env-file=.env ./src/server.ts",
     "build": "tsc",
     "start": "npm run build && npx prisma generate && node dist/server.js",
-    "seed": "node dist/prisma/seed.js",
-    "postinstall": "npx ts-node prisma/seed.ts"
+    "seed": "node dist/prisma/seed.js"
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",
