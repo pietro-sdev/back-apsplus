@@ -5,7 +5,11 @@ import { mainRouter } from "./routers/main";
 
 const server = express();
 server.use(helmet());
-server.use(cors());
+server.use(cors({
+    origin: 'https://front-apsplus.vercel.app', // Permitir seu frontend
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true // Se você estiver usando autenticação com cookies
+  }));
 server.use(urlencoded({ extended: true }));
 server.use(express.json());
 
