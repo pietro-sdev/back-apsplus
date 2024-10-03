@@ -4,18 +4,25 @@ import helmet from "helmet";
 import { mainRouter } from "./routers/main";
 
 const server = express();
+
+// Configuração de segurança com helmet
 server.use(helmet());
+
+// Configuração do CORS para permitir todas as origens
 server.use(cors({
-    origin: 'https://front-apsplus.vercel.app', // Permitir seu frontend
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true // Se você estiver usando autenticação com cookies
-  }));
+  origin: '*', // Permite todas as origens
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
+}));
+
+// Outras configurações
 server.use(urlencoded({ extended: true }));
 server.use(express.json());
 
+// Roteamento principal
 server.use(mainRouter);
 
+// Inicialização do servidor
 server.listen(process.env.PORT || 3001, () => {
-    console.log(`Servidor rodando na porta ${process.env.BASE_URL}`);
+  console.log(`Servidor rodando na porta ${process.env.PORT || 3001}`);
 });
- 
