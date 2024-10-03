@@ -4,6 +4,9 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
+  // Apaga todos os usuários existentes antes de criar novos
+  await prisma.user.deleteMany();
+  
   // Hash das senhas
   const hashedPassword1 = await bcrypt.hash('root', 10);
   const hashedPassword2 = await bcrypt.hash('Le@ndroSilv@2101', 10);
