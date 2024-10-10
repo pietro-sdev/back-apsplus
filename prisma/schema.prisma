@@ -15,20 +15,57 @@ model User {
 }
 
 model Employee {
-  id          Int      @id @default(autoincrement())
-  fullName    String
-  cpf         String   @unique
-  phone       String
-  email       String   @unique
-  cep         String
-  address     String
-  number      String
-  complement  String?
+  id           Int      @id @default(autoincrement())
+  fullName     String
+  cpf          String   @unique
+  phone        String
+  email        String   @unique
+  cep          String
+  address      String
+  number       String
+  complement   String?
   neighborhood String
-  city        String
-  state       String
-  password   String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  city         String
+  state        String
+  password     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
+model Paciente {
+  id                 Int     @id @default(autoincrement())
+  nomeCompleto       String
+  nomeSocial         String?
+  rg                 String
+  cpf                String   @unique
+  dataNascimento     DateTime
+  genero             String
+  racaCor            String
+  telefone           String
+  email              String   @unique
+  estadoCivil        String
+  profissao          String
+  cep                String
+  endereco           String
+  bairro             String
+  cidade             String
+  estado             String
+  numero             String
+  numeroConvenio     String?
+  relacaoComTitular  String?
+  plano              String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Clinica {
+  id        Int      @id @default(autoincrement())
+  nome      String   @unique
+  telefone  String   @unique
+  cep       String
+  endereco  String
+  cidade    String
+  estado    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

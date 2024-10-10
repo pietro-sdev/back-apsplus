@@ -9,11 +9,7 @@ const server = express();
 server.use(helmet());
 
 // Configuração do CORS para permitir todas as origens
-server.use(cors({
-  origin: '*', // Permite todas as origens
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
-}));
+server.use(cors());
 
 // Outras configurações
 server.use(urlencoded({ extended: true }));

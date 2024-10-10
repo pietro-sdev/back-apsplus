@@ -1,9 +1,7 @@
-import { Router } from 'express';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../utils/prisma';
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-const prisma = new PrismaClient();
 
 // Rota de login
 export const authRouter = async (req: Request, res: Response) => {
